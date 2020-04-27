@@ -93,6 +93,19 @@ app.put("/blogs/:id", function(req, res){
     });
 });
 
+// DELETE ROUTE
+app.delete("/blogs/:id", function(req, res){
+    // destroy blog
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+    // redirect
+});
+
 app.listen(3000, function(){
     console.log("Listening on 3000");
 });
